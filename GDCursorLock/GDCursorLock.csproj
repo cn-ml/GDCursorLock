@@ -9,8 +9,4 @@
     <AssemblyVersion>1.0.0</AssemblyVersion>
   </PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="PInvoke.Windows.Core" Version="0.7.104" />
-  </ItemGroup>
-
 </Project>

@@ -1,7 +1,6 @@
 ﻿using System.Diagnostics;
 using System.Reflection;
 using GDCursorLock;
-using PInvoke;
 
 RECT rect;
 POINT point;
@@ -22,7 +21,8 @@ Console.CancelKeyPress += Console_CancelKeyPress;
 
 while (true) {
     // without delay this loops ~100/s
-    await Task.Delay(60, cts.Token);
+    try { await Task.Delay(60, cts.Token); } catch (TaskCanceledException) { }
+    if (cts.IsCancellationRequested) break;
     if (Process.GetProcessesByName("GeometryDash").SingleOrDefault() is not Process process) {
         Log("Process not running!");
         continue;
