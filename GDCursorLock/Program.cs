@@ -1,11 +1,14 @@
 ﻿using System.Diagnostics;
+using System.Reflection;
 using GDCursorLock;
 using PInvoke;
 
 RECT rect;
 POINT point;
 
-Console.WriteLine("GD Cursor Lock by cn-ml");
+var assembly = Assembly.GetExecutingAssembly();
+var assemblyName = assembly.GetName();
+Console.WriteLine($"{assemblyName.Name} by cn-ml version {assemblyName.Version}");
 Console.WriteLine("Your Cursor will now be fixed to Geometry Dash if the application is focused.");
 Console.WriteLine("You can always Alt+Tab out of Geometry Dash");
 Console.WriteLine("Press Ctrl+C to quit");
